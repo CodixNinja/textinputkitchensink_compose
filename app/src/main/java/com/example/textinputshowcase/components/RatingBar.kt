@@ -19,7 +19,8 @@ package com.example.textinputshowcase.components
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Star
-import androidx.compose.material.icons.filled.StarBorder
+import androidx.compose.material.icons.outlined.Star
+import androidx.compose.material.icons.sharp.Star
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.runtime.Composable
@@ -44,7 +45,7 @@ fun RatingBar(
                 modifier = Modifier.size(48.dp)
             ) {
                 Icon(
-                    imageVector = if (i <= rating) Icons.Filled.Star else Icons.Filled.StarBorder,
+                    imageVector = if (i <= rating) Icons.Filled.Star else Icons.Outlined.Star,
                     contentDescription = "Star $i",
                     tint = if (i <= rating) Color(0xFFFFC107) else Color.Gray
                 )

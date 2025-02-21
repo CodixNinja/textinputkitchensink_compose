@@ -16,6 +16,7 @@
 
 package com.example.textinputshowcase.components
 
+import android.graphics.drawable.Icon
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardActions
@@ -39,7 +40,9 @@ fun StandardTextField(
     supportingText: String? = null,
     isError: Boolean = false,
     maxLines: Int = 1,
-    trailingIcon: @Composable (() -> Unit)? = null
+    trailingIcon: @Composable (() -> Unit)? = null,
+    leadingIcon: @Composable (() -> Unit)? = null,
+    placeholder: @Composable (() -> Unit)? = null
 ) {
     OutlinedTextField(
         value = value,
@@ -55,7 +58,9 @@ fun StandardTextField(
         isError = isError,
         maxLines = maxLines,
         trailingIcon = trailingIcon,
-        singleLine = maxLines == 1
+        singleLine = maxLines == 1,
+        leadingIcon = leadingIcon,
+        placeholder = placeholder
     )
 }
 

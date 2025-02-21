@@ -99,7 +99,7 @@ fun CalendarScreen(navController: NavController) {
                             onNext = { focusManager.moveFocus(FocusDirection.Down) }
                         ),
                         leadingIcon = {
-                            Icon(Icons.Default.Event, contentDescription = null)
+                            Icon(Icons.Default.DateRange, contentDescription = null)
                         }
                     )
 
@@ -153,7 +153,7 @@ fun CalendarScreen(navController: NavController) {
                             ),
                             placeholder = { Text("MM/DD/YYYY") },
                             leadingIcon = {
-                                Icon(Icons.Default.CalendarToday, contentDescription = null)
+                                Icon(Icons.Default.DateRange, contentDescription = null)
                             }
                         )
 
@@ -170,7 +170,7 @@ fun CalendarScreen(navController: NavController) {
                             ),
                             placeholder = { Text("HH:MM") },
                             leadingIcon = {
-                                Icon(Icons.Default.Schedule, contentDescription = null)
+                                Icon(Icons.Default.DateRange, contentDescription = null)
                             }
                         )
                     }
@@ -192,7 +192,7 @@ fun CalendarScreen(navController: NavController) {
                             ),
                             placeholder = { Text("MM/DD/YYYY") },
                             leadingIcon = {
-                                Icon(Icons.Default.CalendarToday, contentDescription = null)
+                                Icon(Icons.Default.DateRange, contentDescription = null)
                             }
                         )
 
@@ -209,7 +209,7 @@ fun CalendarScreen(navController: NavController) {
                             ),
                             placeholder = { Text("HH:MM") },
                             leadingIcon = {
-                                Icon(Icons.Default.Schedule, contentDescription = null)
+                                Icon(Icons.Default.DateRange, contentDescription = null)
                             }
                         )
                     }
@@ -244,7 +244,7 @@ fun CalendarScreen(navController: NavController) {
                         ),
                         maxLines = 5,
                         leadingIcon = {
-                            Icon(Icons.Default.Description, contentDescription = null)
+                            Icon(Icons.Default.Edit, contentDescription = null)
                         }
                     )
                 }

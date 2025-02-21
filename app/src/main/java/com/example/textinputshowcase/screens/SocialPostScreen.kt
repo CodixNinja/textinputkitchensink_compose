@@ -31,10 +31,12 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextRange
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.TextFieldValue
+import androidx.compose.ui.text.input.TransformedText
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
@@ -74,6 +76,7 @@ fun SocialPostScreen(navController: NavController) {
         showSuggestions = (isHashtag || isMention) && currentWord.length > 1
     }
 
+    @Composable
     fun getHighlightedText(text: String): AnnotatedString {
         return buildAnnotatedString {
             val words = text.split(' ')
@@ -131,9 +134,9 @@ fun SocialPostScreen(navController: NavController) {
                             capitalization = KeyboardCapitalization.Sentences,
                             imeAction = ImeAction.Done
                         ),
-                        visualTransformation = { text ->
-                            AnnotatedString(text.text, getHighlightedText(text.text).spanStyles)
-                        },
+//                        visualTransformation = { text ->
+//                            TransformedText(text.text, getHighlightedText(text.text).spanStyles)
+//                        },
                         maxLines = 8
                     )
 
@@ -165,7 +168,7 @@ fun SocialPostScreen(navController: NavController) {
                                             postContent.text.lastIndexOf(currentWord) + currentWord.length)
                                         postContent = TextFieldValue(
                                             text = beforeWord + prefix + suggestion + afterWord,
-                                            selection = (beforeWord + prefix + suggestion).length
+                                            selection = TextRange((beforeWord + prefix + suggestion).length)
                                         )
                                         showSuggestions = false
                                     }
@@ -194,16 +197,16 @@ fun SocialPostScreen(navController: NavController) {
                         IconButton(onClick = { 
                             postContent = TextFieldValue(
                                 text = postContent.text + "#",
-                                selection = postContent.text.length + 1
+                                selection = TextRange(postContent.text.length + 1)
                             )
                         }) {
-                            Icon(Icons.Default.Tag, contentDescription = "Add hashtag")
+                            Icon(Icons.Default.Add, contentDescription = "Add hashtag")
                         }
                         
                         IconButton(onClick = { 
                             postContent = TextFieldValue(
                                 text = postContent.text + "@",
-                                selection = postContent.text.length + 1
+                                selection = TextRange(postContent.text.length + 1)
                             )
                         }) {
                             Icon(Icons.Default.Person, contentDescription = "Mention someone")

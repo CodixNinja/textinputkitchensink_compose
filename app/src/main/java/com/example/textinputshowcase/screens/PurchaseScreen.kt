@@ -28,6 +28,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
@@ -87,7 +88,7 @@ fun PurchaseScreen(navController: NavController) {
                 keyboardActions = KeyboardActions(
                     onNext = { focusManager.moveFocus(FocusDirection.Down) }
                 ),
-                modifier = Modifier.autofillHints(listOf("name", "personName"))
+                //modifier = Modifier.semantics { contentType = ContentType.Name }
             )
 
             StandardTextField(
@@ -101,7 +102,7 @@ fun PurchaseScreen(navController: NavController) {
                 keyboardActions = KeyboardActions(
                     onNext = { focusManager.moveFocus(FocusDirection.Down) }
                 ),
-                modifier = Modifier.autofillHints(listOf("streetAddress", "postalAddress"))
+                //modifier = Modifier.semantics { contentType = ContentType.Address }
             )
 
             Row(
@@ -113,8 +114,8 @@ fun PurchaseScreen(navController: NavController) {
                     onValueChange = { city = it },
                     label = "City",
                     modifier = Modifier
-                        .weight(1f)
-                        .autofillHints(listOf("city", "addressCity")),
+                        .weight(1f),
+                        //.autofillHints(listOf("city", "addressCity")),
                     keyboardOptions = KeyboardOptions(
                         capitalization = KeyboardCapitalization.Words,
                         imeAction = ImeAction.Next
@@ -129,8 +130,8 @@ fun PurchaseScreen(navController: NavController) {
                     onValueChange = { state = it.take(2) },
                     label = "State",
                     modifier = Modifier
-                        .width(96.dp)
-                        .autofillHints(listOf("state", "addressState")),
+                        .width(96.dp),
+                        //.autofillHints(listOf("state", "addressState")),
                     keyboardOptions = KeyboardOptions(
                         capitalization = KeyboardCapitalization.Characters,
                         imeAction = ImeAction.Next
@@ -145,8 +146,8 @@ fun PurchaseScreen(navController: NavController) {
                     onValueChange = { zipCode = it.take(5) },
                     label = "ZIP",
                     modifier = Modifier
-                        .width(96.dp)
-                        .autofillHints(listOf("zipCode", "postalCode")),
+                        .width(96.dp),
+                        //.autofillHints(listOf("zipCode", "postalCode")),
                     keyboardOptions = KeyboardOptions(
                         keyboardType = KeyboardType.Number,
                         imeAction = ImeAction.Next
@@ -180,7 +181,7 @@ fun PurchaseScreen(navController: NavController) {
                 keyboardActions = KeyboardActions(
                     onNext = { focusManager.moveFocus(FocusDirection.Down) }
                 ),
-                modifier = Modifier.autofillHints(listOf("creditCardNumber"))
+                //modifier = Modifier.autofillHints(listOf("creditCardNumber"))
             )
 
             Row(
@@ -196,8 +197,8 @@ fun PurchaseScreen(navController: NavController) {
                     },
                     label = "MM/YY",
                     modifier = Modifier
-                        .weight(1f)
-                        .autofillHints(listOf("creditCardExpirationDate")),
+                        .weight(1f),
+                        //.autofillHints(listOf("creditCardExpirationDate")),
                     keyboardOptions = KeyboardOptions(
                         keyboardType = KeyboardType.Number,
                         imeAction = ImeAction.Next
@@ -215,8 +216,8 @@ fun PurchaseScreen(navController: NavController) {
                     onValueChange = { cvv = it.take(4) },
                     label = "CVV",
                     modifier = Modifier
-                        .width(96.dp)
-                        .autofillHints(listOf("creditCardSecurityCode")),
+                        .width(96.dp),
+                        //.autofillHints(listOf("creditCardSecurityCode")),
                     keyboardOptions = KeyboardOptions(
                         keyboardType = KeyboardType.Number,
                         imeAction = ImeAction.Done
